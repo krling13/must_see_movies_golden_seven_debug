@@ -11,35 +11,31 @@ class RolesController < ApplicationController
   end
 
   def create_row
-    @role = Role.new
-    @role.character_name = params[:character_name]
-    @role.movie_id = params[:movie_id]
-    @role.actor_id = params[:actor_id]
+    p = Role.new
+    p.character_name = params[:character_name]
+    p.movie_id = params[:movie_id]
+    p.actor_id = params[:actor_id]
+    p.save
 
-    @role.save
-
-    render("show")
+    redirect_to("http://localhost:3000/roles")
   end
 
   def edit_form
-    @role = Role.find(params[:id])
+    @role = Role.find_by({:id=>params[:id]})
   end
 
   def update_row
-    @role = Role.find(params[:id])
-
-    @role.character_name = params[:character_name]
-    @role.movie_id = params[:movie_id]
-    @role.actor_id = params[:actor_id]
-
-    @role.save
-
-    render("show")
+    p = Role.find_by({:id=>params[:id]})
+    p.character_name = params[:character_name]
+    p.movie_id = params[:movie_id]
+    p.actor_id = params[:actor_id]
+    p.save
+    redirect_to("http://localhost:3000/roles")
   end
 
   def destroy
-    @role = Role.find(params[:id])
-
-    @role.destroy
+    p= Role.find(params[:id])
+    p.destroy
+       redirect_to("http://localhost:3000/roles")
   end
 end

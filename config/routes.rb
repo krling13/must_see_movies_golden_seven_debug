@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Route for bare domain:
-  get('/', { :controller => 'movies', :action => 'index' })
+  get("/", { :controller => "movies", :action => "index" })
 
   # Routes for the Director resource:
   # CREATE
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get("/update_director/:id", { :controller => "directors", :action => "update_row" })
 
   # DELETE
-  get('/delete_director/:id', { :controller => 'directors', :action => 'destroy' })
+  get("/delete_director/:id", { :controller => "directors", :action => "destroy" })
   #------------------------------
 
   # Routes for the Movie resource:
@@ -33,40 +33,40 @@ Rails.application.routes.draw do
   get("/update_movie/:id", { :controller => "movies", :action => "update_row" })
 
   # DELETE
-  get('/delete_movie/:id', { :controller => 'movies', :action => 'destroy' })
+  get("/delete_movie/:id", { :controller => "movies", :action => "destroy" })
   #------------------------------
 
   # Routes for the Role resource:
   # CREATE
-  get('/roles/new_form', { :controller => 'roles', :action => 'new_form' })
-  get('/create_role', { :controller => 'roles', :action => 'create_row' })
+  get("/roles/new_form", { :controller => "roles", :action => "new_form" })
+  get("/roles/create_role", { :controller => "roles", :action => "create_row" })
 
   # READ
-  get('/roles', { :controller => 'roles', :action => 'index' })
-  get('/roles/:id', { :controller => 'roles', :action => 'show' })
+  get("/roles", { :controller => "roles", :action => "index" })
+  get("/roles/:id", { :controller => "roles", :action => "show" })
 
   # UPDATE
-  get('/roles/:id/edit_form', { :controller => 'roles', :action => 'edit_form' })
-  get('/update_role/:id', { :controller => 'roles', :action => 'update_row' })
+  get("/roles/:id/edit_form", { :controller => "roles", :action => "edit_form" })
+  get("/update_role/:id", { :controller => "roles", :action => "update_row" })
 
   # DELETE
-  get('/delete_role/:id', { :controller => 'roles', :action => 'destroy' })
+  get("/delete_role/:id", { :controller => "roles", :action => "destroy" })
   #------------------------------
 
   # Routes for the Actor resource:
   # CREATE
-  get('/actors/new_form', { :controller => 'actors', :action => 'new_form' })
-  get('/create_actor', { :controller => 'actors', :action => 'create_row' })
+  get("/actors/new_form", { :controller => "actors", :action => "new_form" })
+  get("/actors/create_actor", { :controller => "actors", :action => "create_row" })
 
   # READ
-  get('/actors', { :controller => 'actors', :action => 'index' })
-  get('/actors/:id', { :controller => 'actors', :action => 'show' })
+  get("/actors", { :controller => "actors", :action => "index" })
+  get("/actors/:id", { :controller => "actors", :action => "show" })
 
   # UPDATE
-  get('/actors/:id/edit_form', { :controller => 'actors', :action => 'edit_form' })
-  get('/update_actor/:id', { :controller => 'actors', :action => 'update_row' })
+  get("/actors/:id/edit_form", { :controller => "actors", :action => "edit_form" })
+  get("/update_actor/:id", { :controller => "actors", :action => "update_row" })
 
   # DELETE
-  get('/delete_actor/:id', { :controller => 'actors', :action => 'destroy' })
+  get("/delete_actor/:id", { :controller => "actors", :action => "destroy" })
   #------------------------------
 end
