@@ -1,47 +1,43 @@
 class DirectorsController < ApplicationController
   def index
-    directors = Director.all
+    @directors = Director.all
   end
 
-  def show
+  def show_details
     @director = Director.find(params[:id])
   end
 
-  def new
+  def new_form
   end
 
   def create_row
-    @director = Director.new
-    @director.dob = params[:dob]
-    @director.name = params[:name]
-    @director.bio = params[:bio]
-    @director.image_url = params[:image_url]
+    p=Director.new
+    p.dob = params[:dob]
+    p.name = params[:name]
+    p.bio = params[:bio]
+    p.image_url = params[:image_url]
+    p.save
 
-    @director.save
-
-    render("show")
+    redirect_to("http://localhost:3000/directors")
   end
 
   def edit_form
-    @director = Director.find(params[:id])
+    @director = Director.find_by({:id=>params[:id]})
   end
 
   def update_row
-    @director = Director.find(params[:id])
-
-    @director.dob = params[":dob"]
-    @director.name = params[":name"]
-    @director.bio = params[":bio"]
-    @director.image_url = params[":image_url"]
-
-    @director.save
-
-    render("show")
-  end
+    p = Director.find_by({:id=>params[:id]})
+    p.dob = params[:dob]
+    p.name = params[:name]
+    p.bio = params[:bio]
+    p.image_url = params[:image_url]
+    p.save
+    redirect_to("http://localhost:3000/directors")
+    end
 
   def destroy
-    @director = Director.find(params[:id])
-
-    @director.destroy
+   p = Director.find_by({:id=>params[:id]})
+   p.destroy
+   redirect_to("http://localhost:3000/directors")
   end
 end
